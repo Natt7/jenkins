@@ -1,0 +1,101 @@
+@import "../common";
+
+.wrapper {
+  padding-bottom: 95px;
+  background: #E5E5E5;
+  .clearfix;
+  .header {
+    .clearfix;
+    padding-bottom: 20px;
+    overflow: hidden;
+    background: url("../../assets/images/mine/bg.png");
+    width: 640px;
+    height: 350px;
+    text-align: center;
+
+    .center {
+      width: 315px;
+      text-align: center;
+      display: inline-block;
+      .clearfix;
+      .thumb {
+        margin-top: 45px;
+        img {
+          width: 150px;
+          height: 150px;
+          .border-radius(75px, 75px, 75px, 75px);
+        }
+      }
+      .name {
+        margin-top: 10px;
+        font-size: 22.16px;
+      }
+    }
+
+    .menu {
+      margin-top: 15px;
+      .icon {
+        display: inline-block;
+        width: 110px;
+        i {
+          display: inline-block;
+          width: 59px;
+          height: 59px;
+          .clearfix;
+        }
+        b {
+          display: inline-block;
+          width: 59px;
+          height: 59px;
+          .clearfix;
+        }
+        span {
+          display: inline-block;
+          width: 100%;
+          font-size: 22px;
+          color: #727071;
+          margin-top: 10px;
+        }
+
+        &.icon-home {
+          i {
+            background: url("../../assets/images/mine/home.svg") no-repeat;
+          }
+          b {
+            background: url("../../assets/images/mine/home_unselect.svg") no-repeat;
+          }
+        }
+        &.icon-order {
+          i {
+            background: url("../../assets/images/mine/order.svg") no-repeat;
+          }
+          b {
+            background: url("../../assets/images/mine/order_unselect.svg") no-repeat;
+          }
+        }
+        &.icon-stock {
+          i {
+            background: url("../../assets/images/mine/stock.svg") no-repeat;
+          }
+          b {
+            background: url("../../assets/images/mine/stock_unselect.svg") no-repeat;
+          }
+        }
+        &.icon-coupon {
+          i {
+            background: url("../../assets/images/mine/coupon.svg") no-repeat;
+          }
+          b {
+            background: url("../../assets/images/mine/coupon_unselect.svg") no-repeat;
+          }
+        }
+      }
+    }
+  }
+
+  .container {
+    // margin-top: 5px;
+    background: #ffffff;
+    .clearfix;
+  }
+}

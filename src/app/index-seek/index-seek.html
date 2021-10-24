@@ -1,0 +1,53 @@
+<div class="wrapper">
+  <div class="seekMain">
+    <form action="javascript:return true;" class="input-kw-form" style="width: 360px;display: block;float: left">
+      <input name="name" class="seekInput" [(ngModel)]="seekContent" placeholder="搜索心动好物"  type="search" (keyup)="keyup($event)" style="outline:none;">
+    </form>
+    <div class="cancel" (click)="seekBut()">取消</div>
+    <div class="seekBut" (click)="slseekBut()"></div>
+  </div>
+
+  <img src="assets/images/index/noseekbg.png" class='noSeek' *ngIf="seekArr.length == 0">
+
+  <div class="container" *ngFor="let brand of seekArr">
+    <div class="header">
+      {{brand?.brand?.name}}
+      <img src="assets/images/detail/brandicon.png" alt="" style="margin-left: 20px;">
+    </div>
+    <div class="content">
+      <ul>
+        <li *ngFor="let product of brand.products">
+          <a>
+            <div class="thumb" (click)="goDetail(product)">
+              <img src="{{product.thumb}}"/>
+            </div>
+            <div class="info">
+              <div class="title" (click)="goDetail(product)">{{product.title}}</div>
+              <div class="intro" (click)="goDetail(product)">{{product.summary}}</div>
+              <div class="test">
+                <div class="testleft">
+                  <div class="testlefttop">¥{{product.price}}<img src="assets/images/detail/discountsicon.png" alt="" style="margin-left:5px;"></div>
+                  <div class="testleftbottom">
+                    <span class="marketPrice">市场价¥{{product.origin_price}}</span>
+                    <span class="soles" *ngIf="shop_type == 1">已售{{product.purchase_amount}}件</span>
+                    <span class="soles" *ngIf="shop_type == 2 && product.surplus >0">剩余{{product.surplus}}件</span>
+                    <span class="soles" *ngIf="shop_type == 2 && product.surplus <=0">已售完</span>
+                  </div>
+                </div>
+                <div class="testright" *ngIf="product.attributes !== '' && product.attributes !== null" ><a [routerLink]="['add-cart', shopId, product?.id]" style="width: 100%;height: 100%"></a></div>
+                <div class="testright" *ngIf="product.attributes === '' || product.attributes === null" (click)="addCart($event,product)"></div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom"></div>
+  <div class="addCartHint" id="addCart">添加购物车成功</div>
+  <app-main-menu [shopId]="shopId"></app-main-menu>
+  <div class="view-side-form">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

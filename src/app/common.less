@@ -1,0 +1,55 @@
+@import "elements";
+
+@font-face {
+  font-family: '微软雅黑';
+  font-weight: 300;
+  font-style: normal;
+}
+
+//字体格式
+@font-family-black: "Huxiaobo";
+@font-family-Arial: Arial;
+
+@background-grey: #EFEFEF;
+@background-black: #000000;
+
+@font-big: 26px;
+@font-mid: 22px;
+@font-bigger: 32px;
+@font-small: 18px;
+
+//字体颜色
+@font-black: #000000;
+@font-gray: #666666;
+@font-grayish: #888;
+@font-orange: #ff7e00;
+@font-red: #CEA7A6;
+@font-white: #fff;
+@font-blue: #28a7c0;
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: @font-family-black, @font-family-Arial;
+  font-weight: 300;
+  color: @font-black;
+  text-decoration: none;
+  list-style: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-text-size-adjust: none;
+}
+
+.clearfix {
+  *zoom: 1;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+  }
+}

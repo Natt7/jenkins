@@ -1,0 +1,135 @@
+<div class="share-bg" *ngIf="isShowShare" (click)="isShowShare=false"></div>
+<div class="codebg" *ngIf="isShowCode" (click)="isShowCode=false"></div>
+<div class="codeMain" *ngIf="isShowCode">
+  <div class="codeImgbg">
+    <img src="assets/images/detail/codemainbg.png" style="width: 100%;height: 100%">
+    <img src="assets/images/detail/code.png" class="codeImg">
+    <div class="gbbode" (click)="isShowCode=false"></div>
+  </div>
+</div> 
+<div class="wrapper">
+  <div class="header">
+    <div class="thumb">
+      <ngx-carousel
+        [inputs]="carouselOne"
+        [moveToSlide]="1">
+        <ngx-item NgxCarouselItem class="bannerStyle" *ngFor="let image of images">
+          <img src="{{image}}"/>
+        </ngx-item>
+        <button NgxCarouselPrev class='leftRs'>&lt;</button>
+        <button NgxCarouselNext class='rightRs'>&gt;</button>
+      </ngx-carousel>
+    </div>
+    <div class="share" (click)="isShowShare=true"></div>
+
+    <!-- -->
+<!--     <div style="width: 100px;height: 100px;position: fixed;z-index: 100;background: red;left: 500px;top:100px;" (click)="downloadIamge()" > -->
+      <!-- <a href="https://campaign.imnumerique.com/wechat/header.jpg"  download="header.jpg" style="width: 100px;height: 100px;display: block;"></a> -->
+      <!-- <img src="https://dudutest.imnumerique.com/Uploads/Attachment/2018/07/9d8cae8b107b7f4636beee65d0e82521.jpg" download> -->
+    <!-- </div> -->
+<!--     <a href="https://dudutest.imnumerique.com/Uploads/Attachment/2018/07/9d8cae8b107b7f4636beee65d0e82521.jpg?mp.wexin.qq.com"  download="header.jpg" style="width: 100px;height: 100px;position: fixed;z-index: 100;background: blue;left: 500px;top:200px;"></a>
+    <div class="qrcodeBor" id="qrcodeBut">
+      <qr-code [value]=qrcodeText [size]="250"></qr-code>
+      <div class="qrcodeBut" (click)="qrcodeBut()"></div>
+    </div> -->
+
+
+  </div>
+  <div class="countdown" *ngIf="couponService.pdtimelimit">
+    <div class="countdownleft">限时购</div>
+    <div class="countdownright">
+      <div class="countdownrightbor">
+        <div class="test1">距活动结束:</div>
+        <div class="test2">
+          <img src="assets/images/index/timenum.png" alt="" style="width: 100%;height: 100%">
+          <div class="num">{{couponService.day}}</div>
+        </div>
+        <div class="test3">天</div>
+        <div class="test2">
+          <img src="assets/images/index/timenum.png" alt="" style="width: 100%;height: 100%">
+          <div class="num">{{couponService.hours}}</div>
+        </div>
+        <div class="test3">时</div>
+        <div class="test2">
+          <img src="assets/images/index/timenum.png" alt="" style="width: 100%;height: 100%">
+          <div class="num">{{couponService.minutes}}</div>
+        </div>
+        <div class="test3">分</div>
+        <div class="test2">
+          <img src="assets/images/index/timenum.png" alt="" style="width: 100%;height: 100%">
+          <div class="num">{{couponService.seconds}}</div>
+        </div>
+        <div class="test3">秒</div>
+      </div>
+    </div>
+  </div>
+  <div class="info">
+    <!-- <div class="online" *ngIf="product.online_status == 0">商品已下架</div> -->
+    <div class="brand">
+      {{product.brand.name}}
+      <img src="assets/images/detail/brandicon.png" alt="" style="margin-left: 20px;">
+    </div>
+    <div class="title">{{product.title}}</div>
+    <div class="intro">{{product.summary}}</div>
+    <div class="extra">
+      <div class="price">¥{{product.price}}</div>
+      <img src="assets/images/detail/discountsicon.png" alt="">
+      <div class="origin-price">市场价¥{{product.origin_price}}</div>
+      <div class="amount" *ngIf="product.sale_type ==1">已售{{product.purchase_amount}}件</div>
+      <div class="amount" *ngIf="product.sale_type ==2 && product.surplus > 0">剩余{{product.surplus}}件</div>
+      <div class="amount" *ngIf="product.sale_type ==2 && product.surplus <= 0">已售完</div>
+    </div>
+  </div>
+
+  <a [routerLink]="['purchase', shopId, product?.id]" class="specBut" *ngIf="product.online_status==1 && product.attributes != null && product.attributes.length != 0">规格数量选择</a>
+
+  <div class="detailTitle">商品详情</div>
+  <div class="contentinnerhtml" [innerHTML]="product.content | html">
+  </div>
+  <div class="service">
+    <div class="serviceTitleBorder">
+      <div class="serviceTitle">联系客服</div>
+    </div>
+    <div class="serviceMain">
+      <img src="assets/images/detail/serviceicon.png" class="serviceIcon">
+      <div class="serviceText">
+        联系客服公众号<br>
+        一只榴莲<br> 
+        <span>(识别二维码添加客服好友)</span>
+      </div>
+      <img src="assets/images/detail/code.png" class="serviceCode">
+    </div>
+  </div>
+  <div class="bottom"></div>
+  <div class="toolbar">
+    <a [routerLink]="['/index', shopId]" class="home"></a>
+    <a [routerLink]="['/cart', shopId]" class="cart"><i class="icon-cart"><span class="icon-number">{{cartCount}}</span></i><span></span></a>
+    <a (click)="isShowCode=true" class="service"></a>
+    <a [routerLink]="['add-cart', shopId, product?.id]" class="add-cart" *ngIf="product.online_status==1">加入购物车</a>
+    <a [routerLink]="['purchase', shopId, product?.id]" class="purchase" *ngIf="product.online_status==1">立即购买</a>
+    <a  class="drop-add-cart" *ngIf="product.online_status==0">加入购物车</a>
+    <a  class="drop-purchase" *ngIf="product.online_status==0">立即购买</a>
+  </div>
+
+
+
+  <div class="view-side-form">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- 分享浮层 -->
+<!--   <div class="sharetwo" *ngIf="wechatService.shareRedBin">
+  <div class="share">
+    <div class="takered" (click)="takered()"></div>
+  </div> -->
+
+</div>
+  <!-- 分享浮层 -->
+<!--  -->
+<div class="sharered" *ngIf="shareRed && pdshopID">
+<!-- <div class="share"> -->
+  <img src="assets/images/index/red2.png" alt="" class="shareimg">
+  <div class="takered" (click)="takered()"></div>
+</div>
+<script type="text/javascript">
+ 
+</script>

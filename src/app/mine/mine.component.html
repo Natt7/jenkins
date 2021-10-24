@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <div class="header">
+    <div class="center">
+      <div class="thumb">
+        <img src="{{userService.identity.thumb}}" *ngIf="userService.identity.thumb">
+        <img src="assets/images/mine/default_avator.png" *ngIf="!userService.identity.thumb">
+      </div>
+      <div class="name">{{userService.identity.name}}</div>
+      <!-- <div class="name">库存记录：{{stockCount}}</div> -->
+    </div>
+    <div class="menu">
+      <a [routerLink]="['/index', shopId]" class="icon icon-home">
+        <i></i>
+        <span>商城</span>
+      </a>
+      <a [routerLink]="['order', shopId, 'order']" class="icon icon-order">
+        <i *ngIf="!mineService.pdorderimg"></i>
+        <b *ngIf="mineService.pdorderimg"></b>
+        <span>订单</span>
+      </a>
+<!--       <a [routerLink]="['stock', shopId]" class="icon icon-stock">
+        <i  *ngIf="!mineService.pdstockimg"></i>
+        <b *ngIf="mineService.pdstockimg"></b>
+        <span>库存</span>
+      </a> -->
+      <a [routerLink]="['coupons', shopId]" class="icon icon-coupon">
+        <i  *ngIf="!mineService.pdcouponsimg"></i>
+        <b *ngIf="mineService.pdcouponsimg"></b>
+        <span>优惠券</span>
+      </a>
+    </div>
+  </div>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+@import "./../common";
+
+.wrapper {
+  height: 100%;
+  .nav {
+    position: absolute;
+    width: 270px;
+    height: 100%;
+    background: url("../../assets/images/sliderbar/1_03.png");
+    * {
+      color: @font-white;
+      .opacity(1);
+    }
+
+    .header {
+      .logo {
+        // background: url("../../assets/images/sliderbar/1_02.svg") no-repeat top center;
+        // background-size: 200px 114px;
+        width: 268px;
+        height: 114px;
+        border-bottom: 1px solid #7E7A7A;
+
+      }
+
+      .user-info {
+        text-align: center;
+        padding: 25px 0;
+        //border-bottom: 1px solid #7E7A7A;
+
+        .thumb {
+          width: 124px;
+          height: 124px;
+          display: inline-block;
+
+          img {
+            width: 124px;
+            height: 124px;
+            display: inline-block;
+            .border-radius(62px, 62px, 62px, 62px);
+          }
+        }
+        .name {
+          margin-top: 20px;
+          line-height: 25px;
+        }
+        .record {
+          line-height: 25px;
+        }
+      }
+    }
+    .up{
+      height: 20px;
+      width: 100%;
+      background: url("../../assets/images/index/tags_up.svg") no-repeat center ;
+      background-size: 20px 16px;
+      margin-top: 3px;
+    }
+
+    .menu {
+      ul {
+        height: 390px;
+        overflow-y: scroll;
+        li {
+          height: 65px;
+          display: inline-block;
+          width: 100%;
+          border-bottom: 1px solid #7E7A7A;
+
+          &.active {
+            background: #CEA7A6;
+          }
+          a {
+            font-size: 26px;
+            line-height: 65px;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+          }
+        }
+      }
+
+    }
+    .down{
+      height: 20px;
+      width: 100%;
+      background: url("../../assets/images/index/tags_down.svg") no-repeat center;
+      background-size: 20px 16px;
+      margin-top: 3px;
+    }
+    .footer {
+      position: absolute;
+      font-size: @font-mid;
+      bottom: 25px;
+      width: 100%;
+      p {
+        text-align: center;
+        line-height: 32px;
+      }
+    }
+  }
+
+  .holder {
+    display: block;
+    margin-left: 270px;
+    height: 100%;
+  }
+
+}
+

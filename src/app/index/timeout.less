@@ -1,0 +1,154 @@
+@import "./../common";
+
+.wrapper {
+  height: 100%;
+  .nav {
+    position: absolute;
+    width: 270px;
+    height: 100%;
+    background: url("../../assets/images/sliderbar/1_03.png");
+    * {
+      color: @font-white;
+      .opacity(1);
+    }
+
+    .header {
+      .logo {
+        background: url("../../assets/images/sliderbar/1_02.svg") no-repeat top center;
+        background-size: 200px 114px;
+        width: 268px;
+        height: 114px;
+        border-bottom: 1px solid #7E7A7A;
+
+      }
+
+      .user-info {
+        text-align: center;
+        padding: 25px 0;
+        //border-bottom: 1px solid #7E7A7A;
+
+        .thumb {
+          width: 124px;
+          height: 124px;
+          display: inline-block;
+
+          img {
+            width: 124px;
+            height: 124px;
+            display: inline-block;
+            .border-radius(62px, 62px, 62px, 62px);
+          }
+        }
+        .name {
+          margin-top: 20px;
+          line-height: 25px;
+        }
+        .record {
+          line-height: 25px;
+        }
+      }
+    }
+    .up{
+      height: 20px;
+      width: 100%;
+      background: url("../../assets/images/index/tags_up.svg") no-repeat center ;
+      background-size: 20px 16px;
+      margin-top: 3px;
+    }
+
+    .menu {
+      ul {
+        height: 390px;
+        overflow-y: scroll;
+        li {
+          height: 65px;
+          display: inline-block;
+          width: 100%;
+          border-bottom: 1px solid #7E7A7A;
+
+          &.active {
+            background: #CEA7A6;
+          }
+          a {
+            font-size: 26px;
+            line-height: 65px;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+          }
+        }
+      }
+
+    }
+    .down{
+      height: 20px;
+      width: 100%;
+      background: url("../../assets/images/index/tags_down.svg") no-repeat center;
+      background-size: 20px 16px;
+      margin-top: 3px;
+    }
+    .footer {
+      position: absolute;
+      font-size: @font-mid;
+      bottom: 25px;
+      width: 100%;
+      p {
+        text-align: center;
+        line-height: 32px;
+      }
+    }
+  }
+
+  .holder {
+    display: block;
+    margin-left: 270px;
+    height: 100%;
+  }
+
+}
+
+.subscribe{
+  width: 100%;
+  height: 85px;
+  background: linear-gradient(to right, #CEA7A6, #fed032);
+  box-sizing: border-box;
+  padding-top: 13px;
+}
+.kolname{
+  float: left;
+  width: 276px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  color: white;
+  font-size: 25px;
+}
+.subscribebut{
+  float: right;
+  height: 56px;
+  width: 223px;
+  border: 2px solid white;
+  text-align: center;
+  line-height: 56px;
+  color: white;
+  font-size: 25px;
+  border-radius: 10px;
+  margin-right: 25px;
+}
+.subscribelayer{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left:0;
+  top:0;
+  background: rgba(0,0,0,.5);
+}
+.subscribelayerimg{
+  width: 588px;
+  height: 470px;
+  position: absolute;
+  left:26px;
+  top:240px;
+}
+
+

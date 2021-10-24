@@ -1,0 +1,71 @@
+<div class="wrapper" (scroll)="pageEvent($event)">
+  <div class="table">
+    <div class="tableStand"></div>
+    <div class="tbaleNew" [class.tableSelect]="tableNum == 1" (click)="tableSelect(1)">最新上架</div>
+    <div class="tbaleOld" [class.tableSelect]="tableNum == 2" (click)="tableSelect(2)">即将到期</div>
+  </div>
+  <div class="listMain" *ngIf="tableNum == 1">
+    <div class="shopString" *ngFor="let new of newArr">
+      <div class="shopBanner">
+        <ngx-carousel
+          [inputs]="carouselOne"
+          [moveToSlide]="1">
+          <ngx-item NgxCarouselItem class="bannerStyle" *ngFor="let banner of new.banners">
+            <img src="{{banner.thumb}}" class="carouselImg"/>
+          </ngx-item>
+          <button NgxCarouselPrev class='leftRs'>&lt;</button>
+          <button NgxCarouselNext class='rightRs'>&gt;</button>
+        </ngx-carousel>
+      </div>
+      <div class="shopInfo">
+        <div class="shopTitle">{{new.shop_name}}</div>
+        <div class="shoContent">{{new.description}}</div>
+        <div class="shopWire"></div>
+        <div class="shopCoupon" *ngIf="new.activity_coupons.length > 0">
+          <div class="shopCouponTitle">优惠券</div>
+          <div class="shopCouponBor">
+            <span class="shopCouponString" *ngFor="let coupon of new.activity_coupons">满{{coupon.man | number}}减{{coupon.discount | number}}</span>
+          </div>
+        </div>
+         <div class="shopCoupon" *ngIf="new.activity_coupons.length == 0">
+          <div class="shopCouponTitleNo">暂无优惠券</div>
+        </div>
+        <a [routerLink]="['/index', new.code]"  class="gyg">
+          <img src="assets/images/index/gyg.png">
+        </a>          
+      </div>
+    </div>
+  </div>
+  <div class="listMain" *ngIf="tableNum == 2">
+    <div class="shopString" *ngFor="let old of oldArr">
+      <div class="shopBanner">
+        <ngx-carousel
+          [inputs]="carouselOne"
+          [moveToSlide]="1">
+          <ngx-item NgxCarouselItem class="bannerStyle" *ngFor="let banner of old.banners">
+            <img src="{{banner.thumb}}" class="carouselImg"/>
+          </ngx-item>
+          <button NgxCarouselPrev class='leftRs'>&lt;</button>
+          <button NgxCarouselNext class='rightRs'>&gt;</button>
+        </ngx-carousel>
+      </div>
+      <div class="shopInfo">
+        <div class="shopTitle">{{old.shop_name}}</div>
+        <div class="shoContent">{{old.description}}</div>
+        <div class="shopWire"></div>
+        <div class="shopCoupon" *ngIf="old.activity_coupons.length > 0">
+          <div class="shopCouponTitle">优惠券</div>
+          <div class="shopCouponBor">
+            <span class="shopCouponString" *ngFor="let coupon of old.activity_coupons">满{{coupon.man | number}}减{{coupon.discount | number}}</span>
+          </div>
+        </div>
+         <div class="shopCoupon" *ngIf="old.activity_coupons.length == 0">
+          <div class="shopCouponTitleNo">暂无优惠券</div>
+        </div>
+        <a [routerLink]="['/index', old.code]"  class="gyg">
+          <img src="assets/images/index/gyg.png">
+        </a>          
+      </div>
+    </div>  
+  </div>
+</div>

@@ -1,0 +1,182 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+@font-face {
+  font-family: '微软雅黑';
+  font-weight: 300;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Huxiaobo", Arial;
+  font-weight: 300;
+  color: #000000;
+  text-decoration: none;
+  list-style: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-text-size-adjust: none;
+}
+.carouselImg {
+  display: block;
+  width: 100%;
+  height: 316px;
+  border-radius: 8px;
+}
+.leftRs {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+}
+.rightRs {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;  
+}
+.wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background: #FFF7F7;
+}
+.table {
+  width: 100%;
+  height: 76px;
+  position: relative;
+  background: white;
+  border-bottom: 1px solid #D7D7D7;
+}
+.tableStand {
+  width: 2px;
+  height: 26px;
+  background: #FF9F9F;
+  position: absolute;
+  left: 319px;
+  top: 25px;
+}
+.tbaleNew, .tbaleOld {
+  width: 50%;
+  height: 76px;
+  text-align: center;
+  line-height: 76px;
+  font-size: 27px;
+  color: #CCCCCC;
+}
+.tbaleNew{
+  float: left;
+}  
+.tbaleOld{
+  float: right;
+}  
+.tableSelect {
+  color: #FF9F9F;
+}
+.listMain {
+  box-sizing: border-box;
+  padding:  25px;
+}
+.shopString {
+  width: 100%;
+  height: 480px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 4px 4px 12px #EDCEC7;  
+  margin-bottom: 25px;  
+}
+.shopBanner {
+  width: 100%;
+  height: 316px;
+  background: #F4F4F4;
+}
+
+.shopInfo {
+  width: 100%;
+  height: 164px;
+  box-sizing: border-box;
+  padding-left: 26px;
+  padding-right: 26px;
+  padding-top: 22px;
+  position: relative;
+}
+.gyg {
+  width: 130px;
+  height: 50px;
+  position: absolute;
+  right: 26px;
+  top: 22px;
+  display: block;
+}
+.gyg img {
+  width: 100%;
+  height: 100%;
+}
+.shopTitle {
+  width: 400px;
+  height: 40px;
+  line-height: 40px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size: 24px;
+  color: #444444;
+}
+.shoContent {
+  width: 400px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size: 20px;
+  color: #CCCCCC;
+}
+.shopWire {
+  width: 100%;
+  height: 20px;
+  border-bottom: 1px solid #DDDDDD;
+}
+.shopCoupon {
+  width: 100%;
+  height: 30px;
+  margin-top: 15px;
+}
+.shopCouponTitle {
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  color: #CCCCCC;
+  float: left;
+}
+.shopCouponTitleNo {
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  color: #CCCCCC;
+  float: left;
+}
+.shopCouponBor {
+  width: 450px;
+  height: 30px;
+  float: right;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+.shopCouponString {
+  height: 28px;
+  line-height: 28px;
+  font-size: 17px;
+  color: #FF9F9F;
+  border: 1px solid #FF9F9F;
+  background: #FFF1F1;
+  padding: 0 10px;
+  border-radius: 3px;
+  margin-right: 15px;
+}
