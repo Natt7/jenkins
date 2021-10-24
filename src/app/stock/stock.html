@@ -1,0 +1,73 @@
+<div class="head">请选择商品及数量发货</div>
+<div class="content">
+  <div class="empty" *ngIf="products.length == 0">暂无记录</div>
+  <ul>
+    <li *ngFor="let product of products">
+
+      <div class="main" *ngIf="!shows[product.product.id]">
+        <div class="thumb">
+          <img src="{{product.product.thumb}}" alt="">
+        </div>
+        <div class="info">
+          <div class="title">{{product.product.title}}</div>
+          <div class="intro">{{product.product.summary}}</div>
+          <div class="extra">
+            <div class="amount">
+              <span *ngIf="!isChoose[product.product.id]">库存数量：{{product.amount | number}}</span> 
+              <span *ngIf="isChoose[product.product.id]">发货：{{units[product.product.id]}}</span>
+            </div>
+            <a class="change-amount" (click)="showSelect(product.product.id)" *ngIf="!isChoose[product.product.id]">选择数量</a>
+            <!-- <a class="change-amount" (click)="showSelect(product.product.id)" *ngIf="isChoose[product.product.id]">已选数量：{{units[product.product.id]}}</a> -->
+            <a class="amend-amount" (click)="showSelect(product.product.id)" *ngIf="isChoose[product.product.id]">修改</a>
+            <a class="delete-amount" (click)="deleteUnit(product.product.id)" *ngIf="isChoose[product.product.id]">删除</a>
+          </div>
+        </div>
+      </div>
+      <div class="select" *ngIf="shows[product.product.id]">
+        <div class="thumb">
+          <img src="{{product.product.thumb}}" alt="">
+        </div>
+        <div class="info">
+          <a class="minus" (click)="minusUnit(product.product.id)"></a>
+          <input type="text"
+                 [(ngModel)]=units[product.product.id] value="{{units[product.product.id]}}">
+          <a class="plus" (click)="plusUnit(product.product.id)"></a>
+        </div>
+        <a class="button" (click)="confirm(product)">
+          确认
+        </a>
+      </div>
+
+    </li>
+  </ul>
+</div>
+<div class="toolbar">
+  <!--<a class="reward" (click)="reward()">赠送给好友</a>-->
+  <a class="delivery" (click)="delivery()">发货</a>
+</div>
+
+<div class="alertFriend" *ngIf="pdalertFriend">
+  <div class="alertBorFriend">
+    <p class="alertTextFriend">点击发货后商品将从库存中消失哦，请前往订单中查询发货记录</p>
+    <div class="alertButBorFriend">
+      <div class="alertCancelFriend" (click)="qxfriendAlert()">取消</div>
+      <div class="alertStartFriend" (click)="friendAlert()">确认</div>
+    </div>
+  </div>
+</div>
+<div class="alertMe" *ngIf="pdalertMe">
+  <div class="alertBorMe">
+    <p class="alertTextMe">点击发货后商品将从库存中消失哦，请前往订单中查询发货记录</p>
+    <div class="alertButBorMe">
+      <div class="alertCancelMe" (click)="qxmeAlert()">取消</div>
+      <div class="alertStartMe" (click)="meAlert()">确认</div>
+    </div>
+  </div>
+</div>
+
+<div class="alertMain" *ngIf="pdalert">
+  <div class="alertBor">
+    <p class="alertText">{{textAlert}}</p>
+    <div class="alertBut" (click)="qxalert()">确认</div>
+  </div>
+</div>

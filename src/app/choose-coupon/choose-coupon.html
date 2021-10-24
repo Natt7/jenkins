@@ -1,0 +1,60 @@
+<div class="choose-coupon-bg">
+</div>
+<div class="choose-coupon-container" >
+  <div class="header">
+    <h1>优惠券</h1>
+  </div>
+  <div class="content">
+    <ul>
+      <li *ngFor="let coupon of coupons">
+          <div class="unreceive"> 
+            <div class="left">
+              <div class="receivePrice colorBDCCD3">
+                立减¥{{parseInt(coupon.discount)}}
+              </div>
+              <div class="receiveSummary color333A48">
+                订单满{{parseInt(coupon.man)}}使用
+              </div>
+              <div class="receiveExpire colorCCCCCC">
+                有效期 {{coupon.start_time}}-{{coupon.end_time}}
+              </div> 
+            </div>
+<!--             <div class="center">
+              <div class="title" style="margin-top:8px">
+                {{coupon.title}}
+              </div>
+            </div> -->
+            <a class="right" (click)="use(coupon)">
+              立即<br>
+              使用
+            </a>
+          </div>
+
+        <!-- <div class="left">
+            <div class="yang">立减</div>
+            <div class="price">¥{{parseInt(coupon.discount)}}</div>
+        </div>
+        <div class="center">
+          <div class="title">
+            {{coupon.title}}
+          </div>
+          <div class="summary">
+            订单满{{parseInt(coupon.man)}}使用
+          </div>
+          <div class="expire">
+            有效期 {{coupon.start_time}}-{{coupon.end_time}}
+          </div>
+        </div>
+        <a (click)="use(coupon)" class="right" *ngIf="!coupon.is_selected">
+          立即<br>
+          使用
+        </a>
+        <a (click)="close()" class="right" *ngIf="coupon.is_selected">
+          立即<br>
+          使用
+        </a> -->
+      </li>
+    </ul>
+  </div>
+  <a class="submit" (click)="unuse()">不使用优惠券</a>
+</div>

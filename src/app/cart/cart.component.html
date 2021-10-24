@@ -1,0 +1,132 @@
+<div class="wrapper">
+  <!-- 有商品 -->
+  <div class="container" *ngIf="pdcarts">
+    <ul class="item-container">
+      <li class="item" *ngFor="let cart of carts; let i = index" [attr.data-index]="i">
+        <div class="top">
+          <div class="brand">
+            {{cart?.brand?.name}}
+            <img src="assets/images/detail/brandicon.png" alt="" class="brandIcon">            
+          </div>
+        </div>
+        <div class="mid">
+          <ul class="child-item-container">
+            <li class="child-item"  *ngFor="let product of cart.products; let j = index" [attr.data-index]="j">
+              <div class="thumb">
+                <img src="{{product?.product.thumb}}">
+              </div>
+              <div class="info">
+                <a class="delete" (click)="deleteProduct(product?.id)"></a>
+                <div class="title">{{product?.product.title}}</div>
+                <div class="intro">{{product?.product.summary}}</div>
+                <div class="intro" *ngIf="product.product_attributes !== '' && product.product_attributes !== null">规格：{{product?.product_attributes}}</div>
+                <div class="price">¥{{product?.product.price}}</div>
+                <div class="amount">
+                  <a class="minus" (click)="minus(i, j)" [class.nominus]="product.unit == 1">-</a>
+                  <input type="text" disabled [(ngModel)]="product.unit" value="{{product?.unit}}">
+                  <!--<a class="plus" (click)="plus(i, j)"></a>-->
+                  <a class="plus" *ngIf="product?.product.sale_type == 1" (click)="plus(i, j)">+</a>
+                  <a class="plus" *ngIf="product?.unit < product?.product.surplus && product?.product.sale_type == 2" (click)="plus(i, j)">+</a>
+                  <a class="plus_disable" *ngIf="product?.product.sale_type == 2 && product?.unit == product?.product.surplus">+</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div class="bottom"></div>
+  </div>
+  <div class="toolbar" *ngIf="pdcarts">
+    <div class="info">共({{productCount}})件商品 &nbsp;&nbsp;&nbsp;&nbsp; 合计 ¥{{toDecimal2(totalPrice)}}元</div>
+    <a class="submit" (click)="createOrder()">提交订单</a>
+  </div>
+  <!-- 无商品 -->
+  <div *ngIf="!pdcarts"> 
+    <img src="assets/images/cart/cartimg.svg" style="width: 100%;display: block;">
+    <div class="containernocarts" *ngFor="let brand of brands">
+      <div class="header">
+        {{brand?.brand?.name}}
+        <img src="assets/images/detail/brandicon.png" alt="" style="margin-left: 20px;">
+      </div>
+      <div class="content">
+        <ul>
+          <li *ngFor="let product of brand.products">
+            <a (click)="goDetail(product)">
+              <div class="thumb">
+                <img src="{{product.mini_thumb}}"/>
+              </div>
+              <div class="info">
+                <div class="title">{{product.title}}</div>
+                <div class="intro">{{product.summary}}</div>
+                <div class="test">
+                  <div class="testleft">
+                    <div class="testlefttop">¥{{product.price}}<img src="assets/images/detail/discountsicon.png" alt="" style="margin-left:5px;"></div>
+                    <div class="testleftbottom">
+                      <span class="marketPrice">市场价¥{{product.origin_price}}</span>
+                      <span class="soles" *ngIf="shop_type == 1">已售{{product.purchase_amount}}件</span>
+                      <span class="soles" *ngIf="shop_type == 2 && product.surplus >0">剩余{{product.surplus}}件</span>
+                      <span class="soles" *ngIf="shop_type == 2 && product.surplus <=0">已售完</span>
+                    </div>
+                  </div>
+                  <div class="testright">马上购买</div>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="main-menu-container" *ngIf="!pdcarts">
+    <ul>
+     <li>
+       <a [routerLink]="['/index', shopId]">
+         <i class="icon-home"></i>
+         <span style="font-size: 17px;color: #7F8389;">首页</span>
+        </a>
+      </li>
+      <li>
+        <a (click)="goCart()">
+          <i class="icon-cart"></i>
+          <span style="font-size: 17px;color: #CEA7A6;">购物车</span>
+        </a>
+      </li>
+      <li>
+        <a (click)="goMine()">
+          <i class="icon-my"></i>
+          <span style="font-size: 17px;color: #7F8389;">我的</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['add', shopId]">
+          <i class="icon-more"></i>
+          <span style="font-size: 17px;color: #7F8389;">更多</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- <div class="container" *ngIf="!pdcarts"> -->
+  
+  <!-- </div> -->
+
+
+
+</div>
+
+
+
+<div class="alert" *ngIf="pdalert">
+  <div class="alertBor">
+    <p class="alertText">确定要删除该商品吗</p>
+    <div class="alertButBor">
+      <div class="alertCancel" (click)="qxAlert()">取消</div>
+      <div class="alertStart" (click)="qrAlert()">确认</div>
+    </div>
+  </div>
+</div>
+
+<div class="view-side-form">
+  <router-outlet></router-outlet>
+</div>

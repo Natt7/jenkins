@@ -1,0 +1,167 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+@font-face {
+  font-family: '微软雅黑';
+  font-weight: 300;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Huxiaobo", Arial;
+  font-weight: 300;
+  color: #000000;
+  text-decoration: none;
+  list-style: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-text-size-adjust: none;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.wrapper {
+  padding-bottom: 95px;
+  background: #E5E5E5;
+  *zoom: 1;
+}
+.wrapper:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.wrapper .header {
+  *zoom: 1;
+  padding-bottom: 20px;
+  overflow: hidden;
+  background: url("../../assets/images/mine/bg.png");
+  width: 640px;
+  height: 350px;
+  text-align: center;
+}
+.wrapper .header:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.wrapper .header .center {
+  width: 315px;
+  text-align: center;
+  display: inline-block;
+  *zoom: 1;
+}
+.wrapper .header .center:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.wrapper .header .center .thumb {
+  margin-top: 45px;
+}
+.wrapper .header .center .thumb img {
+  width: 150px;
+  height: 150px;
+  -webkit-border-top-right-radius: 75px;
+  -webkit-border-bottom-right-radius: 75px;
+  -webkit-border-bottom-left-radius: 75px;
+  -webkit-border-top-left-radius: 75px;
+  -moz-border-radius-topright: 75px;
+  -moz-border-radius-bottomright: 75px;
+  -moz-border-radius-bottomleft: 75px;
+  -moz-border-radius-topleft: 75px;
+  border-top-right-radius: 75px;
+  border-bottom-right-radius: 75px;
+  border-bottom-left-radius: 75px;
+  border-top-left-radius: 75px;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.wrapper .header .center .name {
+  margin-top: 10px;
+  font-size: 22.16px;
+}
+.wrapper .header .menu {
+  margin-top: 15px;
+}
+.wrapper .header .menu .icon {
+  display: inline-block;
+  width: 110px;
+}
+.wrapper .header .menu .icon i {
+  display: inline-block;
+  width: 59px;
+  height: 59px;
+  *zoom: 1;
+}
+.wrapper .header .menu .icon b {
+  display: inline-block;
+  width: 59px;
+  height: 59px;
+  *zoom: 1;
+}
+.wrapper .header .menu .icon i:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.wrapper .header .menu .icon span {
+  display: inline-block;
+  width: 100%;
+  font-size: 22px;
+  color: #727071;
+  margin-top: 10px;
+}
+.wrapper .header .menu .icon.icon-home i {
+  background: url("../../assets/images/mine/home_unselect.svg") no-repeat;
+}
+.wrapper .header .menu .icon.icon-order i {
+  background: url("../../assets/images/mine/order_unselect.svg") no-repeat;
+}
+.wrapper .header .menu .icon.icon-stock i {
+  background: url("../../assets/images/mine/stock_unselect.svg") no-repeat;
+}
+.wrapper .header .menu .icon.icon-coupon i {
+  background: url("../../assets/images/mine/coupon_unselect.svg") no-repeat;
+}
+
+.wrapper .header .menu .icon.icon-home b {
+  background: url("../../assets/images/mine/home.svg") no-repeat;
+}
+.wrapper .header .menu .icon.icon-order b {
+  background: url("../../assets/images/mine/order.svg") no-repeat;
+}
+.wrapper .header .menu .icon.icon-stock b {
+  background: url("../../assets/images/mine/stock.svg") no-repeat;
+}
+.wrapper .header .menu .icon.icon-coupon b {
+  background: url("../../assets/images/mine/coupon.svg") no-repeat;
+}
+.wrapper .container {
+  /*margin-top: 5px;*/
+  background: #ffffff;
+  *zoom: 1;
+}
+.wrapper .container:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}

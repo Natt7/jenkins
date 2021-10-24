@@ -1,0 +1,57 @@
+
+<div class="wrapper">
+  <div class="container">
+    <ul class="item-container">
+      <li class="item">
+        <div class="top">
+          <div class="brand">赠送列表</div>
+        </div>
+        <div class="mid">
+          <ul class="child-item-container" *ngFor="let product of reward.products">
+            <li class="child-item">
+              <div class="thumb">
+                <img src="{{product.product_thumb}}">
+              </div>
+              <div class="info">
+                <div class="title">{{product.product_title}}</div>
+                <div class="intro">{{product.product_summary}}</div>
+                <div class="extra">
+                  <div class="price">¥ {{product.product_price}}</div>
+                  <div class="amount">x{{product.amount | number}}</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="bottom">
+          共{{reward.unit|number}}件商品 合计 ¥ {{reward.price}}
+        </div>
+      </li>
+    </ul>
+
+    <div class="comment-container">
+      <div class="header">
+        赠送留言
+      </div>
+      <div class="content">
+        <textarea placeholder="赠送留言" [(ngModel)]="reward.content" *ngIf="reward.reward_status==='INIT'"></textarea>
+        <textarea placeholder="赠送留言" [(ngModel)]="reward.content" *ngIf="reward.reward_status==='REWARD' || reward.reward_status==='REWARDING'" disabled></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="toolbar">
+    <a (click)="goIndex()" class="home"><i class="icon-home"></i></a>
+    <a (click)="goCart()" class="cart"><i class="icon-cart"></i></a>
+    <a class="purchase" (click)="doReward()" *ngIf="reward.reward_status==='INIT'">立即赠送</a>
+    <a class="purchase" (click)="showTip()" *ngIf="reward.reward_status==='REWARD' || reward.reward_status==='REWARDING'">立即赠送</a>
+  </div>
+</div>
+<div class="share-background" *ngIf="isShowTip" (click)="hideTip()"></div>
+<div class="copy-background" *ngIf="isShowCopy" (click)="hideCopy()"></div>
+
+<div class="alertMain" *ngIf="pdalert">
+  <div class="alertBor">
+    <p class="alertText">{{textAlert}}</p>
+    <div class="alertBut" (click)="qxalert()">确认</div>
+  </div>
+</div>

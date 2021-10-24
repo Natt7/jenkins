@@ -1,0 +1,37 @@
+<div class="add-cart-container" id="add-cart-main">
+    <a class="close" (click)="back()"></a>
+    <div class="item">
+      <div class="thumb" *ngIf="product?.mini_thumb">
+        <img src="{{product.mini_thumb}}">
+      </div>
+      <div class="info">
+        <!-- <div class="title">{{product.title}}</div> -->
+        <div class="infoBottom">
+          <div class="price">价格：¥{{product.price}}</div>
+          <div class="qrspec" *ngIf="attribute != ''">已选：{{attribute}}规格</div>          
+        </div>
+      </div>
+      <div class="attributes">
+        <div class="specification" *ngIf="attributes.length > 0">规格：</div>
+        <div *ngFor="let attribute of attributes" class="attribute" [class.selectedAttribute]="attribute.selected" (click)="selectedAttribute(attribute)">{{attribute.name}}</div>
+      </div>
+      <div class="specification">数量：</div>
+      <div class="amount">
+        <a class="minus" (click)="minusUnit()" [class.nominus]="unit == 1">-</a>
+        <input type="text" disabled
+               [(ngModel)]=unit value="{{unit}}" >
+        <a class="plus" *ngIf="product?.sale_type == 1" (click)="plusUnit()">+</a>
+        <a class="plus" *ngIf="unit < product?.surplus && product?.sale_type == 2" (click)="plusUnit()">+</a>
+        <a class="plus_disable" *ngIf="product?.sale_type == 2 && unit == product?.surplus">+</a>
+      </div>
+    </div>
+    <a class="submit" (click)="addToCart()">加入购物车</a>
+</div>
+<div class="add-cart-bg"></div>
+
+<div class="alertMain" *ngIf="pdalert">
+  <div class="alertBor">
+    <p class="alertText">请选择商品规格</p>
+    <div class="alertBut" (click)="qxalert()">确认</div>
+  </div>
+</div>

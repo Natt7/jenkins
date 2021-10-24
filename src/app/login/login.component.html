@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <div class="header">
+    <div class="left">
+    </div>
+    <div class="center">
+      <div class="thumb">
+        <img src="{{userService.identity.thumb}}" *ngIf="userService.identity.thumb">
+        <img src="assets/images/mine/default_avator.png" *ngIf="!userService.identity.thumb">
+      </div>
+    </div>
+    <div class="right">
+    </div>
+  </div>
+  <div class="container">
+    <div class="content">
+      <div class="form-group">
+        <label>手机号</label>
+        <input type="tel" [(ngModel)]="mobile">
+      </div>
+      <div class="form-group captcha">
+        <label>验证码</label>
+        <input type="tel" [(ngModel)]="captcha">
+        <a class="send" *ngIf="showSend" (click)="sendCaptcha($event)">获取验证码</a>
+        <a class="send" *ngIf="!showSend">{{second}}秒</a>
+      </div>
+    </div>
+  </div>
+  <div class="toolbar" (click)="bindMobile()">
+    <a class="delivery">登录</a>
+  </div>
+
+  <div class="alertMain" *ngIf="pdalert">
+    <div class="alertBor">
+      <p class="alertText">{{textAlert}}</p>
+      <div class="alertBut" (click)="qxalert()">确认</div>
+    </div>
+  </div>
+</div>

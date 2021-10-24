@@ -1,0 +1,272 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+@font-face {
+  font-family: '微软雅黑';
+  font-weight: 300;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Huxiaobo", Arial;
+  font-weight: 300;
+  color: #000000;
+  text-decoration: none;
+  list-style: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-text-size-adjust: none;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.choose-coupon-bg {
+  background: #000000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  -webkit-opacity: 0.7;
+  opacity: 0.7;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+  filter: alpha(opacity=70);
+}
+.choose-coupon-container {
+  position: fixed;
+  bottom: 0;
+  background: #ffffff;
+  width: 640px;
+  z-index: 2;
+}
+.choose-coupon-container .header h1 {
+  font-size: 22.22px;
+  line-height: 85px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+
+.choose-coupon-container .submit {
+  background: #CEA7A6;
+  font-size: 28px;
+  color: #ffffff;
+  display: inline-block;
+  line-height: 90px;
+  text-align: center;
+  width: 100%;
+}
+.payment-container {
+  background: #ffffff;
+  position: fixed;
+  bottom: 0;
+  width: 640px;
+}
+.payment-container .header {
+  padding: 10px 20px;
+  border-bottom: solid 1px #EFEFEF;
+  *zoom: 1;
+}
+.payment-container .header:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.payment-container .header .close {
+  display: inline-block;
+  background: url("../../assets/images/cart/close.svg") no-repeat;
+  width: 21px;
+  height: 23px;
+  float: left;
+}
+.payment-container .header .question {
+  display: inline-block;
+  background: url("../../assets/images/cart/question.svg") no-repeat;
+  width: 28px;
+  height: 27px;
+  float: right;
+}
+.payment-container .header .amount {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+  color: #666666;
+}
+.payment-container .header .price {
+  font-size: 34px;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.payment-container .container .title {
+  font-size: 22px;
+  line-height: 60px;
+  padding: 0 45px;
+  display: block;
+  border-bottom: solid 1px #EFEFEF;
+}
+.payment-container .container .content {
+  padding-bottom: 50px;
+  *zoom: 1;
+}
+.payment-container .container .content:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.payment-container .container .content ul li.wechat {
+  border-bottom: solid 1px #EFEFEF;
+  padding: 0 45px;
+}
+.payment-container .container .content ul li.wechat a {
+  display: block;
+  cursor: pointer;
+  *zoom: 1;
+}
+.payment-container .container .content ul li.wechat a:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.payment-container .container .content ul li.wechat .thumb {
+  display: inline-block;
+  background: url("../../assets/images/cart/wechat.svg") no-repeat;
+  width: 174px;
+  height: 72px;
+  float: left;
+}
+.payment-container .container .content ul li.wechat .more {
+  display: inline-block;
+  background: url("../../assets/images/cart/more.svg") no-repeat;
+  width: 21px;
+  height: 43px;
+  float: right;
+  margin-top: 17px;
+}
+
+.content {
+  padding: 0 30px;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+    background: #FFF7F7;
+}
+.content ul {
+  display: inline-block;
+  width: 100%;
+}
+
+.content ul li .unreceive {
+  background: url("../../assets/images/index/coupon_active_bg.png") no-repeat;
+  width: 100%;
+  height: 180px;
+  background-position: center;
+  background-size: 100% 100%;
+  display: block;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.content ul li .center {
+  width: 200px;
+  float: left;
+}
+.content ul li .center .title {
+  margin-top: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.content ul li .center .title {
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 30px;
+}
+.content ul li .right {
+  float: right;
+  width: 180px;
+  height: 180px;
+  vertical-align: middle;
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 50px;
+}
+.toolbar {
+  position: fixed;
+  bottom: 0;
+  height: 90px;
+  background: #ffffff;
+  width: 640px;
+  border-top: 5px solid #EFEFEF;
+}
+.toolbar .submit {
+  background: #CEA7A6;
+  font-size: 28px;
+  color: #ffffff;
+  display: inline-block;
+  line-height: 90px;
+  width: 100%;
+  text-align: center;
+  float: right;
+}
+.left {
+  float: left;
+  height: 180px;
+  width: 400px;
+  box-sizing: border-box;
+  padding-left: 28px;
+}
+.receivePrice {
+  width: 100%;
+  margin-top: 25px;
+  font-size: 34px;
+}
+.receiveSummary {
+  width: 100%;
+  font-size: 20px;
+}
+.receiveExpire {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 20px;
+}
+.receiveLimit {
+  width: 100%;
+  font-size: 20px;
+}
+.colorWhite {
+  color: white;
+}
+.colorBDCCD3 {
+  color: #BDCCD3;
+}
+.color333A48 {
+  color: #333A48;
+}
+.colorCCCCCC {
+  color: #CCCCCC;
+}

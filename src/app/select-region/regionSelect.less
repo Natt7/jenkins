@@ -1,0 +1,121 @@
+@import "../common";
+
+.city-select {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: scroll;
+  z-index: 9999;
+  display: none;
+  background: #fff;
+}
+.city-select.open{
+  display: block;
+}
+
+.list ul {
+  list-style: none;
+}
+
+ul.list-container {
+  width: 100%;
+  display: block;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+.list-container > li {
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 100%;
+}
+
+.list-container > li > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.list-container > li > ul > li {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.list-container .title {
+  font-size: 32px;
+  height: 64px;
+  line-height: 64px;
+  /*text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 -1px 0 rgba(255, 255, 255, 0.4);*/
+  background: #f0f0f0;
+  color: #888;
+  width: 100%;
+  float: left;
+  text-transform: uppercase;
+  border-top: 1px solid #bcc1c5;
+  border-bottom: 1px solid #bcc1c5;
+  margin: 0;
+  text-indent: 20px;
+}
+
+.list-container ul li {
+  float: left;
+  width: 100%;
+}
+
+.list-container ul li a {
+  /*padding: 5px 10px;*/
+  display: block;
+  border-bottom: 1px solid #F3F3F3;
+  text-transform: capitalize;
+  text-indent: 20px;
+  padding: 0;
+  font-size: 24px;
+  height: 48px;
+  line-height: 48px;
+}
+
+.list-container ul li a:hover {
+  background: #F3FAFF;
+  border-color: #D5EBF9;
+}
+
+.list-container ul li:last-child {
+  border-bottom: 0;
+}
+
+.list-container a.title{
+  padding: 0;
+}
+
+.price_content ul.list-container li {
+  padding: 0;
+  margin: 0;
+}
+
+.city-select-model {
+  width: 380px;
+
+  .form-control {
+    font-size: 24px;
+    text-align: left;
+    line-height: 50px;
+    color: #7c7c7c;
+    &.active {
+      color: #000;
+    }
+  }
+}
+
+
+.close-select {
+  font-size: 30px;
+  text-align: center;
+  line-height: 50px;
+  background: #eb8f00;
+  color: #fff;
+}
